@@ -16,10 +16,10 @@ metadata:
 customVersion: v1beta2
 spec:
   v1beta2:
-    image: chefdemo/mongodb
+    image: jmery/np-mongodb
     count: 1
     service:
-      name: mongodb
+      name: np-mongodb
       # Name of the secret.
       # This is mounted inside of the pod as a user.toml file.
       configSecretName: user-toml
@@ -33,14 +33,14 @@ metadata:
 customVersion: v1beta2
 spec:
   v1beta2:
-    image: chefdemo/national-parks
+    image: jmery/national-parks:6.7.0
     count: 1
     service:
       name: national-parks
       topology: standalone
       bind:
         - name: database
-          service: mongodb
+          service: np-mongodb
           group: default
 ---
 apiVersion: v1
