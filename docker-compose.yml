@@ -1,7 +1,7 @@
 version: '2'
 services:
   mongodb:
-    image: jmery/np-mongodb
+    image: jmery/np-mongodb:3.2.10
     command: --strategy at-once
     environment:
       HAB_MONGODB: "[mongod.net]\nbind_ip = '0.0.0.0'\n[mongod.security]\ncluster_auth_mode = ''"
