@@ -1,0 +1,35 @@
+gke_credentials_file = "/path/to/gcp/creds.json"
+
+gke_project = "name-of-project"
+
+habitat_origin = "my-hab-origin"
+
+tag_contact = "my-contact-name"
+
+tag_dept = "my-department"
+
+gke_basic_password = "my5uper5ecretPwd!"
+
+// Run the command below to add your cluster config to the kubectl config
+// gcloud container clusters get-credentials $(terraform output cluster_name) --zone=$(terraform output primary_zone)
+
+
+// Run the command below to give your account the ability to create service accounts in GKE
+// This is a GKE-specific requirement
+// kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user $(gcloud config get-value account)
+
+
+// From habitat-operator repo:
+// Run this command to create the necessary roles for RBAC
+// This is a GKE-specific requirement
+// kubectl apply -f examples/rbac/rbac.yml
+
+
+// Run this command to create the habitat-operator
+// kubectl apply -f examples/rbac/habitat-operator.yml
+
+
+// From habiat-updater repo:
+// kubectl apply -f kubernetes/rbac/rbac.yml
+// kubectl apply -f kubernetes/rbac/updater.yml
+
